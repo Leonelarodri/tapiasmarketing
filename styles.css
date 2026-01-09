@@ -56,6 +56,15 @@ body {
     width: 500px;
     height: 500px;
     border-radius: 50%;
+    }
+
+/* Tamaño responsivo para móvil */
+@media (max-width: 768px) {
+  .profile-img {
+    width: 80vw;
+    height: 80vw;
+  }
+}
 
     /* Profile Image Animation Wrapper */
 .profile-img-wrapper {
@@ -480,5 +489,6 @@ body {
         padding: 20px;
     }
 }
+
 
 

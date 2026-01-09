@@ -53,8 +53,8 @@ body {
 }
 
 .profile-img {
-    width: 320px;
-    height: 320px;
+    width: 500px;
+    height: 500px;
     border-radius: 50%;
 
     /* Profile Image Animation Wrapper */
@@ -480,4 +480,5 @@ body {
         padding: 20px;
     }
 }
+
 

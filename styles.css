@@ -66,6 +66,14 @@ body {
   }
 }
 
+  .hero::before {      /* o la clase que tenga tu círculo morado */
+    width: 80vw;       /* un poco más grande que la foto */
+    height: 80vw;
+    top: -10vw;        /* ajusta la posición vertical */
+    right: 50%;        /* centra horizontalmente */
+    transform: translateX(50%);
+  }
+}
     /* Profile Image Animation Wrapper */
 .profile-img-wrapper {
     display: inline-block;
@@ -489,6 +497,7 @@ body {
         padding: 20px;
     }
 }
+
 
 
 

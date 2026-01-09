@@ -53,51 +53,13 @@ body {
 }
 
 .profile-img {
-    width: 500px;
-    height: 500px;
+    width: 320px;
+    height: 320px;
     border-radius: 50%;
-    border: 3px solid var(--primary-purple);   /* <- borde en la imagen */
-    object-fit: cover;
-}
-
-/* Tamaño responsivo para móvil */
-@media (max-width: 768px) {
-  .profile-img {
-    width: 80vw;
-    height: 80vw;
-  }
-
-  .hero::before {      /* o la clase que tenga tu círculo morado */
-    width: 80vw;       /* un poco más grande que la foto */
-    height: 80vw;
-    top: -10vw;        /* ajusta la posición vertical */
-    right: 50%;        /* centra horizontalmente */
-    transform: translateX(50%);
-  }
-}
-    /* Profile Image Animation Wrapper */
-.profile-img-wrapper {
-    display: inline-block;
-    perspective: 800px;
+    border: 3px solid var(--primary-purple);
     margin-bottom: 20px;
-    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
-    transform-origin: center;
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-    animation: profileImageIn 0.7s ease-out 0.2s forwards;
+    object-fit: cover;
     box-shadow: 0 0 40px rgba(183, 75, 255, 0.3);
-}
-
-.profile-img-wrapper:hover .profile-img {
-    transform: translateY(-6px) rotateX(4deg) rotateY(-4deg) scale(1.02);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
-}
-
-@keyframes profileImageIn {
-    to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-    }
 }
 
 .hero h1 {
@@ -214,6 +176,7 @@ body {
 }
 
 .btn-primary {
+    display: inline-block;
     padding: 15px 30px;
     background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
     border: none;
@@ -223,6 +186,8 @@ body {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-decoration: none;   /* Esta línea quita el subrayado */
+    text-align: center;
 }
 
 .btn-primary:hover {
@@ -494,8 +459,105 @@ body {
     }
 }
 
+/* CUSTOM ALERT */
+.custom-alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
 
+.custom-alert-overlay.show {
+    opacity: 1;
+}
 
+.custom-alert-box {
+    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--dark-bg) 100%);
+    border: 2px solid var(--primary-purple);
+    border-radius: 16px;
+    padding: 40px 30px;
+    max-width: 550px;
+    width: 90%;
+    box-shadow: 0 20px 60px rgba(183, 75, 255, 0.5);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
 
+.custom-alert-overlay.show .custom-alert-box {
+    transform: scale(1);
+}
 
+.custom-alert-content {
+    text-align: center;
+}
 
+.custom-alert-content p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--white);
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.custom-alert-content p strong {
+    color: var(--primary-purple);
+}
+
+.custom-alert-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.custom-alert-btn {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.custom-alert-telegram {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+    color: var(--white);
+}
+
+.custom-alert-telegram:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(183, 75, 255, 0.6);
+}
+
+.custom-alert-cancel {
+    background: transparent;
+    border: 2px solid var(--gray-light);
+    color: var(--gray-text);
+}
+
+.custom-alert-cancel:hover {
+    border-color: var(--primary-purple);
+    color: var(--white);
+}
+
+/* Para el botón simple de "Entendido" */
+.custom-alert-btn:not(.custom-alert-telegram):not(.custom-alert-cancel) {
+    background: linear-gradient(135deg, var(--primary-purple) 0%, var(--accent-purple) 100%);
+    color: var(--white);
+}
+
+.custom-alert-btn:not(.custom-alert-telegram):not(.custom-alert-cancel):hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(183, 75, 255, 0.5);
+}

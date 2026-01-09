@@ -56,7 +56,9 @@ body {
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    }
+    border: 3px solid var(--primary-purple);   /* <- borde en la imagen */
+    object-fit: cover;
+}
 
 /* Tamaño responsivo para móvil */
 @media (max-width: 768px) {
@@ -77,14 +79,12 @@ body {
 .profile-img-wrapper {
     display: inline-block;
     perspective: 800px;
-    border: 3px solid var(--primary-purple);
     margin-bottom: 20px;
     transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
     transform-origin: center;
     opacity: 0;
     transform: translateY(20px) scale(0.96);
     animation: profileImageIn 0.7s ease-out 0.2s forwards;
-    object-fit: cover;
     box-shadow: 0 0 40px rgba(183, 75, 255, 0.3);
 }
 
@@ -493,6 +493,7 @@ body {
         padding: 20px;
     }
 }
+
 
 
 

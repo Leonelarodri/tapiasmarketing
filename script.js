@@ -1,24 +1,3 @@
-// Formulario de guía gratuita
-document.getElementById('guideForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const email = document.getElementById('email').value;
-    const name = document.getElementById('name').value;
-    
-    // Aquí irá la integración con Make.com
-    console.log('Formulario enviado:', { email, name });
-    
-    // Mensaje de éxito personalizado
-    showCustomAlert(
-        `✨ ¡Perfecto ${name}! Tu guía está en camino. Revisa tu email (y la carpeta de spam por si acaso) 💜`,
-        null,
-        'close'
-    );
-    
-    // Limpiar formulario
-    this.reset();
-});
-
 // Mensajes personalizados para cada servicio/producto
 const customMessages = {
     // Servicios
@@ -148,3 +127,50 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+const WEBHOOK_URL = "https://hook.us2.make.com/1ud2kegnqxc2nnbtll8b2zsuugxvd9o4";
+
+const guideForm = document.getElementById("guideForm");
+
+if (guideForm) {
+  guideForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("email").value;
+    const name  = document.getElementById("name").value;
+
+    const data = {
+      email,
+      name,
+      source: "https://leonelarodri.github.io/tapiasmarketing/?utm_source=ig&utm_medium=social&utm_content=link_in_bio",
+    };
+
+    console.log("Enviando al webhook...", data);
+
+    try {
+  const res = await fetch(WEBHOOK_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "x-make-apikey": "Tapias0212$." // tu clave exacta
+    },
+    body: JSON.stringify(data)
+  });
+
+  console.log("Respuesta webhook", res.status);
+} catch (err) {
+  console.error("Error enviando al webhook:", err);
+}
+
+
+    // Mensaje de éxito
+    showCustomAlert(
+      `✨ ¡Perfecto ${name}! Tu Infografía de Daniel Dínez está en camino. Revisa tu email (y la carpeta de spam por si acaso) 💜`,
+      null,
+      "close"
+    );
+
+    // Limpiar formulario
+    guideForm.reset();
+  });
+}
+

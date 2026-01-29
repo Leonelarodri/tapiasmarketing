@@ -1,24 +1,19 @@
 // Mensajes personalizados para cada servicio/producto
 const customMessages = {
     // Servicios
-    'Optimización de Perfil de Redes': '⭐ La abundancia fluye cuando te muestras auténtic@ y atractiv@. ¿Estás preparad@ para transformar tu perfil en un imán de oportunidades? Hablemos por Telegram.',
+    'Optimización de Perfil de Redes': 'Transformo tu perfil en un imán de oportunidades: más claro, más profesional y más tú. ¿List@ para atraer a tus clientes ideales? Hablemos en Telegram.',
     
-    'Página Web / Landing Page': '🌐 Una landing page que convierte es tu activo digital más valioso. El dinero fluye cuando tienes claridad y presencia profesional. ¿Construimos juntos tu puerta de entrada al éxito? Conversemos en Telegram.',
+    'Página Web / Landing Page': 'Diseñamos una landing que convierte en ventas, no solo se ve bonita. Tu puerta de entrada al éxito digital empieza aquí. ¿La construimos junt@s? Escríbeme en Telegram.',
     
-    'Automatización por Redes': '⚙️ La abundancia se multiplica cuando automatizas lo repetitivo y te enfocas en lo estratégico. Libera tu tiempo para crear más valor. ¿Quieres escalar sin saturarte? Escríbeme en Telegram.',
+    'Automatización por Redes': 'Automatizo lo repetitivo para que tú te enfoques en lo estratégico. Más tiempo, menos estrés, mismos o mejores resultados. ¿Quieres escalar sin saturarte? Conversemos en Telegram',
     
-    'Tu Avatar digital': '🎭 La IA es tu aliada para crear contenido ilimitado. En la era digital, quien crea más, conecta más y monetiza más. ¿List@ para producir contenido sin límites? Conectemos en Telegram.',
+    'Tu Avatar digital': 'Creamos tu clon visual con IA para que tengas contenido ilimitado sin vivir pegad@ a la cámara. ¿List@ para producir más y mejor? Conectemos en Telegram.',
     
-    'BOT Asistente por Telegram': '🤖 La mentalidad de abundancia necesita herramientas inteligentes. Un BOT que organiza tu negocio 24/7 es invertir en tu paz mental y crecimiento. ¿Automatizamos tu éxito? Te espero en Telegram.',
+    'BOT Asistente por Telegram': 'Un BOT que organiza tu negocio 24/7 es paz mental y crecimiento real. Deja de hacerlo todo a mano. ¿Automatizamos tu éxito? Te espero en Telegram.',
     
     // Productos Premium
-    'Academia Tapias Marketing': '📚 La inversión en conocimiento siempre paga los mejores dividendos. Esta academia es tu atajo hacia la mentalidad y estrategias que generan ingresos reales. ¿List@ para tu transformación completa? Hablemos en Telegram.',
     
-    'Asesoría 1:1': '👥 El acompañamiento personalizado acelera tu camino al éxito. Cuando inviertes en ti, el universo conspira a tu favor. ¿Diseñamos tu estrategia ganadora juntos? Agendemos en Telegram.',
-    
-    'Grupo Tapias Pro': '🔥 La abundancia se multiplica en comunidad. Rodearte de emprendedores que piensan en grande, eleva tu energía y resultados. ¿List@ para ser parte de Tapias PRO? Únete desde Telegram.',
-    
-    'Curso Negocio Digital': '🎓 Construir un negocio digital es tu puerta a la libertad financiera y de tiempo. El momento perfecto es AHORA. ¿Comenzamos tu imperio digital? Conversemos en Telegram.'
+    'Asesoría 1:1': 'Una sesión 1:1 para ordenar tu negocio, priorizar qué automatizar y crear tu propio sistema con IA. ¿Diseñamos tu estrategia ganadora junt@s? Agendemos en Telegram.',
 };
 
 // Función para mostrar alertas personalizadas con opción de Telegram
@@ -94,7 +89,7 @@ document.querySelectorAll('.btn-service').forEach(button => {
         // Extraer solo el texto sin el emoji
         const serviceName = serviceTitle.textContent.replace(/[^\w\sáéíóúñÁÉÍÓÚÑ]/g, '').trim();
         
-        const message = customMessages[serviceName] || `🚀 Para continuar con este servicio, conversemos por Telegram. ¿Estás list@ para el siguiente paso?`;
+        const message = customMessages[serviceName] || `Te ayudo a crear un sistema con IA adaptado a tu negocio. Cuéntame qué necesitas y lo vemos por aquí en Telegram.`;
         
         showCustomAlert(message, telegramLink);
     });
@@ -110,7 +105,7 @@ document.querySelectorAll('.btn-primary').forEach(button => {
             const productTitle = this.closest('.product-card').querySelector('h3');
             const productName = productTitle.textContent.trim();
             
-            const message = customMessages[productName] || `✨ Para acceder a este recurso premium, sigamos la conversación en Telegram. ¿Te animas?`;
+            const message = customMessages[productName];
             
             showCustomAlert(message, telegramLink);
         });
@@ -164,7 +159,7 @@ if (guideForm) {
 
     // Mensaje de éxito
     showCustomAlert(
-      `✨ ¡Perfecto ${name}! Tu Infografía de Daniel Dínez está en camino. Revisa tu email (y la carpeta de spam por si acaso) 💜`,
+      `✨ ¡Perfecto ${name}! Tu guía está en camino. Revisa tu email (y la carpeta de spam por si acaso) 💜`,
       null,
       "close"
     );
